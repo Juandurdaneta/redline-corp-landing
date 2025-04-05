@@ -10,6 +10,21 @@ const Hero = () => {
     >
       {isLoading && <div>LOADING</div>}
 
+      {/* VIDEO DE PARTICULAS EN LOOP */}
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover z-50 opacity-20"
+        src="/videos/particles-1.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        onLoadedData={() => setIsLoading(false)}
+        onLoadStart={() => setIsLoading(true)}
+        aria-hidden="true"
+      >
+        Tu navegador no soporta la reproducción de video.
+      </video>
+
       <div className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg">
         <img
           src="img/hero.png"
@@ -22,13 +37,21 @@ const Hero = () => {
             <span className="block absolute flex flex-row gap-0 top-[25vh] right-[9vw]">
               <b>The</b> ultimate
             </span>
-            <span className="block absolute top-[34vh] left-[8vw] leading-[0.5]">
-              refreshing
-            </span>
-            <span className="block absolute top-[39vh] right-[14vw]">
-              <b>ride</b>
+            <span className="z-40 block relative">
+              <span className="block absolute top-[34vh] left-[8vw] leading-[0.5]">
+                refreshing
+              </span>
+              <span className="block absolute top-[39vh] right-[14vw]">
+                <b>ride</b>
+              </span>
             </span>
           </h1>
+
+          <img
+            src="/img/vehicle.png"
+            alt="Auto futurista"
+            className="absolute z-20 bottom-0 right-0 max-w-[1920px] max-h-[1080px] w-full h-full object-cover object-center"
+          />
         </div>
       </div>
     </section>
