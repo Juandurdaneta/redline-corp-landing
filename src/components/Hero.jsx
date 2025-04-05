@@ -32,7 +32,7 @@ const Hero = () => {
           className="absolute left-0 top-0 size-full object-cover object-center"
         />
 
-        <div className="special-font hero-heading text-red-dark relative text-end w-screen h-screen z-40">
+        <div className="special-font hero-heading dark:text-red-dark relative text-end w-screen h-screen z-40">
           <h1 className="relative">
             <span className="block absolute flex flex-row gap-0 top-[25vh] right-[9vw]">
               <b>The</b> ultimate

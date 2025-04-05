@@ -63,7 +63,7 @@ body {
   b {
     font-family: var(--font-porsche-italic-3d);
     font-feature-settings: "ss01" on;
-    @apply font-thin text-6xl text-red-dark;
+    @apply font-thin text-6xl text-white dark:text-red-dark;
   }
 }
 
