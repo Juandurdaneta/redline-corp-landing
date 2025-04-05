@@ -29,6 +29,10 @@ body {
     src: url("/fonts/911porschav3expand.ttf") format("truetype");
   }
   @font-face {
+    font-family: "911porschav3-expand-italic";
+    src: url("/fonts/911porschav3expandital.ttf") format("truetype");
+  }
+  @font-face {
     font-family: "911porschav3-italic";
     src: url("/fonts/911porschav3ital.ttf") format("truetype");
   }
@@ -43,23 +47,23 @@ body {
 }
 
 @theme {
-
   --font-porsche-regular: "911porschav3", "sans-serif";
   --font-porsche-bold: "911porschav3-bold", "sans-serif";
   --font-porsche-cond: "911porschav3-cond", "sans-serif";
   --font-porsche-expand: "911porschav3-expand", "sans-serif";
+  --font-porsche-expand-italic: "911porschav3-expand-italic", "sans-serif";
   --font-porsche-italic: "911porschav3-italic", "sans-serif";
   --font-porsche-bold-italic: "911porschav3-bold-italic", "sans-serif";
   --font-porsche-italic-3d: "911porschav33ditalic", "sans-serif";
 
-  --color-red-dark: #FF1A1A;
+  --color-red-dark: #ff1a1a;
 }
 
 @utility special-font {
   b {
     font-family: var(--font-porsche-italic-3d);
     font-feature-settings: "ss01" on;
-    font-size: 0.8em;
+    @apply font-thin text-6xl text-red-dark;
   }
 }
 
@@ -101,7 +105,8 @@ body {
   }
 
   .hero-heading {
-    @apply uppercase font-black font-porsche-bold-italic text-8xl;
+    @apply font-porsche-expand-italic font-normal text-8xl text-right;
+    line-height: 0.65 !important; /* Menor interlineado vertical */
   }
 
   .about-subtext {
@@ -174,5 +179,21 @@ body {
 
   .contact-clip-path-2 {
     clip-path: polygon(29% 15%, 85% 30%, 50% 100%, 10% 64%);
+  }
+
+  .tight-leading {
+    line-height: 0.7 !important; /* ajusta aún más si es necesario */
+  }
+
+  .word-spacing-close {
+    word-spacing: -0.15em; /* acerca más la palabra 'THE' a 'ULTIMATE' */
+  }
+
+  .refreshing-margin-right {
+    margin-right: 2rem; /* margen derecho a "REFRESHING" */
+  }
+
+  .ride-closer {
+    margin-top: -1rem; /* acerca "RIDE" a "REFRESHING" */
   }
 }
