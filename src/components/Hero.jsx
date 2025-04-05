@@ -14,26 +14,14 @@ const Hero = () => {
           className="absolute left-0 top-0 size-full object-cover object-center"
         />
 
-        {/* <h1 className="hero-heading absolute right-[5vw] top-[20vh] z-40 text-red-dark special-font">
-          <span className=" word-spacing-close">
-            <b>The</b>
-          </span>
-          ultimate
-          <br />
-          refreshing
-          <br />
-          <span className="">
-            <b>ride</b>
-          </span>
-        </h1> */}
-
         <div className="special-font hero-heading text-red-dark relative text-end w-screen h-screen z-40">
-          <h1 className="absolute top-[25vh] right-[6vw] flex gap-0 items-end">
+          <h1 className="absolute top-[25vh] right-[9vw] flex gap-0 items-end">
             <b>The</b> ultimate
           </h1>
           <h1 className="absolute top-[34vh] left-[8vw] leading-[0.5]">
-            refreshing <br /> <b className="p-10">ride</b>
+            refreshing
           </h1>
+          <h1 className="absolute top-[39vh] right-49"><b>ride</b></h1>
         </div>
       </div>
     </div>
