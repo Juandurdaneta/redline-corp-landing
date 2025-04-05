@@ -44,6 +44,11 @@ body {
     font-family: "911porschav33ditalic";
     src: url("/fonts/911porschav33dital.ttf") format("truetype");
   }
+
+  @font-face {
+    font-family: "Tekur";
+    src: url("/fonts/tekur.ttf") format("truetype");
+  }
 }
 
 @theme {
@@ -55,8 +60,10 @@ body {
   --font-porsche-italic: "911porschav3-italic", "sans-serif";
   --font-porsche-bold-italic: "911porschav3-bold-italic", "sans-serif";
   --font-porsche-italic-3d: "911porschav33ditalic", "sans-serif";
+  --font-tekur: "Tekur", "sans-serif";
 
   --color-red-dark: #ff1a1a;
+  --color-red-dark-50: #c55e5e;
 }
 
 @utility special-font {

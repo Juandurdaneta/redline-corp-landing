@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Testimonials from "./Testimonials";
 
 const Hero = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -12,7 +13,7 @@ const Hero = () => {
 
       {/* VIDEO DE PARTICULAS EN LOOP */}
       <video
-        className="absolute top-0 left-0 w-full h-full object-cover z-50 opacity-20"
+        className="absolute top-0 left-0 w-full h-full object-cover z-40 opacity-20"
         src="/videos/particles-1.mp4"
         autoPlay
         loop
@@ -25,7 +26,7 @@ const Hero = () => {
         Tu navegador no soporta la reproducción de video.
       </video>
 
-      <div className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg">
+      <div className="relative h-dvh w-screen overflow-hidden rounded-lg">
         <img
           src="img/hero.png"
           alt="hero"
@@ -54,6 +55,8 @@ const Hero = () => {
           />
         </div>
       </div>
+
+      <Testimonials />
     </section>
   );
 };
