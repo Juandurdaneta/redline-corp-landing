@@ -11,6 +11,8 @@ const Hero = () => {
     >
       {isLoading && <div>LOADING</div>}
 
+      <img src="/img/border.svg" className="h-full absolute-center z-40" />
+
       {/* VIDEO DE PARTICULAS EN LOOP */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover z-40 opacity-20"
