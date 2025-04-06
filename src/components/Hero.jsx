@@ -2,23 +2,12 @@ import React, { useState } from "react";
 import Testimonials from "./Testimonials";
 import Border from "../assets/border.svg?react";
 
-const Hero = ({ videoRef }) => {
-  const [isLoading, setIsLoading] = useState(true);
-
+const Hero = ({ videoRef, handleVideoLoaded }) => {
   return (
     <section
       className="relative h-dvh w-screen overflow-x-hidden"
       aria-label="Presentacion del vehiculo"
     >
-      {!isLoading && (
-        <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-black">
-          <div className="three-body">
-            <div className="three-body__dot" />
-            <div className="three-body__dot" />
-            <div className="three-body__dot" />
-          </div>
-        </div>
-      )}
       <Border className="h-full w-full z-40 text-white dark:text-red-dark absolute-center" />
 
       {/* VIDEO DE PARTICULAS EN LOOP */}
@@ -29,8 +18,7 @@ const Hero = ({ videoRef }) => {
         loop
         muted
         playsInline
-        onLoadedData={() => setIsLoading(false)}
-        onLoadStart={() => setIsLoading(true)}
+        onLoadedData={handleVideoLoaded}
         aria-hidden="true"
       >
         Tu navegador no soporta la reproducción de video.

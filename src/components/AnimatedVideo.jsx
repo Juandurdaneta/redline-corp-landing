@@ -4,13 +4,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const AnimatedVideo = ({ heroVideoRef, targetRef }) => {
+const AnimatedVideo = ({ heroVideoRef, targetRef, handleVideoLoaded }) => {
   const videoRef = useRef(null);
 
   useLayoutEffect(() => {
     const videoElem = videoRef.current;
     const heroElem = heroVideoRef.current; // Contenedor original en Hero
-    const targetElem = targetRef.current;  // Contenedor destino en Features
+    const targetElem = targetRef.current; // Contenedor destino en Features
     if (!videoElem || !heroElem || !targetElem) return;
 
     // Guarda la posición y tamaño inicial del contenedor de Hero (relativo al viewport)
@@ -124,6 +124,7 @@ const AnimatedVideo = ({ heroVideoRef, targetRef }) => {
         playsInline
         aria-label="Video animado"
         className="video-border-inner"
+        onLoadedData={handleVideoLoaded}
       />
     </div>
   );
