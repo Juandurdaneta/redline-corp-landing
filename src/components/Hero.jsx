@@ -60,6 +60,19 @@ const Hero = () => {
       </div>
 
       <Testimonials />
+
+      <div className="absolute right-20 bottom-10 z-40 w-64 h-34">
+        <div className="video-border-wrapper w-full h-full">
+          <video
+            src="/videos/car_build.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="video-border-inner"
+          />
+        </div>
+      </div>
     </section>
   );
 };
