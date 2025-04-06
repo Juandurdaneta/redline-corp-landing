@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <main className="relative min-h-screen w-screen overflow-x-hidden">
-      {isPageLoaded && (
+      {!isPageLoaded && (
         <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-black">
           <div className="loader">
             <p className="text-white dark:text-red-dark text-base font-porsche-regular">LOADING</p>
