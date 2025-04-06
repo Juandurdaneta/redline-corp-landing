@@ -1,5 +1,6 @@
 import React from "react";
 import ToggleDarkModeButton from "./ToggleDarkModeButton";
+import { User } from "lucide-react";
 
 const NavItems = ["Home", "Vehicles", "Specifications", "Shop"];
 
@@ -30,9 +31,9 @@ const NavItem = ({ item, isActive }) => {
 const Navbar = () => {
   const currentUrl = window.location.href;
   return (
-    <div className="fixed inset-x-0 top-3 z-50 h-16 border-none transition-all duration-700 sm:inset-x-6 lg:inset-x-5">
+    <div className="fixed inset-x-0 top-3 z-50 h-16 border-none transition-all duration-700 sm:inset-x-6 lg:inset-x-0">
       <header className="absolute top-3/4 w-full -translate-y-1/2">
-        <nav className="flex size-full items-center justify-between p-4 gap-20">
+        <nav className="flex size-full items-start justify-between p-4 gap-20">
           <div className="flex items-center gap-20 w-1/4">
             <img src={"/img/logo.svg"} alt="logo" className="w-32" />
             <ToggleDarkModeButton />
@@ -49,11 +50,11 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
-          <div className="flex  justify-end w-1/4">
-            <button className="hidden rounded-full bg-red-dark px-4 py-2 text-white transition-all duration-300 hover:bg-red-light lg:block">
-              U
+          <div className="flex  w-1/4 justify-end h-10">
+            <button className="hidden lg:block px-6 bg-black border dark:border-red-dark rounded-xl text-white dark:text-red-dark">
+              <User />
             </button>
-            <button className="block rounded-full bg-red-dark px-4 py-2 text-white transition-all duration-300 hover:bg-red-light ">
+            <button className="hidden lg:block font-porsche-regular text-base dark:text-red-dark px-6 bg-black border dark:border-red-dark rounded-xl">
               Pre-order
             </button>
           </div>
