@@ -10,18 +10,17 @@ const ToggleDarkModeButton = () => {
   const iconRef = useRef(null);
 
   useEffect(() => {
-    // If darkMode is true, add .dark
-    // else remove it
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+    document.documentElement.classList.toggle("dark", darkMode);
   }, [darkMode]);
 
-  // Toggle function
   const handleToggle = () => {
-    setDarkMode((prev) => !prev);
+    const newDarkMode = !darkMode;
+
+    // Inicia la animación primero
+    iconRef.current.animateOrbital(newDarkMode).then(() => {
+      // Cambia el tema solo después de la animación
+      setDarkMode(newDarkMode);
+    });
   };
 
   return (
@@ -30,7 +29,12 @@ const ToggleDarkModeButton = () => {
       className="flex items-center justify-center gap-2 rounded-full p-2 shadow-md transition-all duration-300 dark:text-white"
     >
       <ButtonShape className="absolute h-3/4 w-full animate-pulse dark:text-red-dark text-white" />
-      <OrbitalIcon darkMode={darkMode} SunIcon={SunIcon} MoonIcon={MoonIcon} />
+      <OrbitalIcon
+        ref={iconRef}
+        darkMode={darkMode}
+        SunIcon={SunIcon}
+        MoonIcon={MoonIcon}
+      />
     </button>
   );
 };
