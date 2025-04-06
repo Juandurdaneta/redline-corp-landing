@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Testimonials from "./Testimonials";
+import Border from "../assets/border.svg?react";
 
 const Hero = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -11,7 +12,7 @@ const Hero = () => {
     >
       {isLoading && <div>LOADING</div>}
 
-      <img src="/img/border.svg" className="h-full absolute-center z-40" />
+      <Border className="h-full w-full z-40 text-white dark:text-red-dark absolute-center" />
 
       {/* VIDEO DE PARTICULAS EN LOOP */}
       <video
