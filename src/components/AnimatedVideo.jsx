@@ -26,7 +26,7 @@ const AnimatedVideo = ({ heroVideoRef, targetRef }) => {
       left: initialHeroRect.left,
       width: initialHeroRect.width,
       height: initialHeroRect.height,
-      zIndex: 1000,
+      zIndex: 80,
       transformOrigin: "top left",
     });
 

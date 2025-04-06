@@ -3,15 +3,22 @@ import Testimonials from "./Testimonials";
 import Border from "../assets/border.svg?react";
 
 const Hero = ({ videoRef }) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <section
       className="relative h-dvh w-screen overflow-x-hidden"
       aria-label="Presentacion del vehiculo"
     >
-      {isLoading && <div>LOADING</div>}
-
+      {!isLoading && (
+        <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-black">
+          <div className="three-body">
+            <div className="three-body__dot" />
+            <div className="three-body__dot" />
+            <div className="three-body__dot" />
+          </div>
+        </div>
+      )}
       <Border className="h-full w-full z-40 text-white dark:text-red-dark absolute-center" />
 
       {/* VIDEO DE PARTICULAS EN LOOP */}
@@ -64,8 +71,7 @@ const Hero = ({ videoRef }) => {
       <div
         ref={videoRef}
         className="absolute right-22 bottom-10 z-40 w-64 h-34"
-      >
-      </div>
+      ></div>
     </section>
   );
 };
