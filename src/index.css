@@ -111,6 +111,47 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 
+  .custom-border-shape {
+    &::before {
+      content: "";
+      @apply absolute inset-0 pointer-events-none border-2 border-red-500 dark:border-red-dark rounded-lg;
+      /* Para que no se superponga el fondo adentro */
+      background: transparent;
+      /* Truco: para crear la forma “cortada” */
+      clip-path: polygon(
+        0% 15%,
+        /* simula curvatura subdividiendo la esquina en varios segmentos */ 5%
+          5%,
+        15% 0%,
+        85% 0%,
+        95% 5%,
+        100% 15%,
+        100% 85%,
+        95% 95%,
+        85% 100%,
+        15% 100%,
+        5% 95%,
+        0% 85%
+      );
+    }
+  }
+
+  .angled-pill {
+    @apply relative w-14 h-8 transition-all duration-300;
+    transform: rotate(25deg);
+
+    &::before {
+      /* El “borde” rotado en sentido inverso para que el contenido no se distorsione */
+      content: "";
+      @apply absolute inset-0 pointer-events-none border-2 border-red-500 dark:border-red-dark;
+      @apply rounded-full; /* esquinas muy redondeadas */
+
+      /* Re-rotate inversamente para que el contenedor parezca oblicuo,
+         pero el interior no se distorsione */
+      transform: rotate(-25deg);
+    }
+  }
+
   .hero-heading {
     @apply font-porsche-expand-italic font-normal text-8xl text-right;
     line-height: 0.65 !important; /* Menor interlineado vertical */

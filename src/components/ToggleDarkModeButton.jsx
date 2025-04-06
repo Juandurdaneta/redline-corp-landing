@@ -1,12 +1,14 @@
-import React from 'react'
-import MoonIcon from '../assets/moon.svg?react';
-
+import React from "react";
+import MoonIcon from "../assets/moon.svg?react";
+import SunIcon from "../assets/sun.svg?react";
+import ButtonShape from "../assets/rectangle-5.svg?react";
 const ToggleDarkModeButton = () => {
   return (
-    <div className='border border-white dark:border-red-dark flex h-10 w-10 cursor-pointer items-center justify-center rounded-full transition-all duration-700 ease-in-out hover:scale-105'>
-        <MoonIcon className="size-6" />
-    </div>
-  )
-}
+    <button className="flex items-center justify-center gap-2 rounded-full p-2 shadow-md transition-all duration-300 dark:text-white">
+      <ButtonShape className="absolute h-3/4 w-full animate-pulse opacity-30" />
+      <MoonIcon className="size-[20px]" />
+    </button>
+  );
+};
 
-export default ToggleDarkModeButton
+export default ToggleDarkModeButton;
