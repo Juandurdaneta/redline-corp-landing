@@ -28,7 +28,7 @@ const ToggleDarkModeButton = () => {
       onClick={handleToggle}
       className="flex items-center justify-center gap-2 rounded-full p-2 shadow-md transition-all duration-300 dark:text-white"
     >
-      <ButtonShape className="absolute h-3/4 w-full animate-pulse dark:text-red-dark text-white" />
+      <ButtonShape className="absolute h-14 animate-pulse dark:text-red-dark text-white" />
       <OrbitalIcon
         ref={iconRef}
         darkMode={darkMode}
