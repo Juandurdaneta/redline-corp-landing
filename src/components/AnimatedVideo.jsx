@@ -9,56 +9,63 @@ const AnimatedVideo = ({ heroVideoRef, targetRef }) => {
 
   useLayoutEffect(() => {
     const videoElem = videoRef.current;
-    const heroElem = heroVideoRef.current;
-    const targetElem = targetRef.current;
+    const heroElem = heroVideoRef.current; // Contenedor original en Hero
+    const targetElem = targetRef.current;  // Contenedor destino en Features
     if (!videoElem || !heroElem || !targetElem) return;
 
-    // Obtener la posición y tamaño inicial de la miniatura en Hero
-    const heroRect = heroElem.getBoundingClientRect();
+    // Guarda la posición y tamaño inicial del contenedor de Hero (relativo al viewport)
+    const initialHeroRect = heroElem.getBoundingClientRect();
 
-    // Configura el video en posición fixed usando los datos del Hero
+    // Guarda el contenedor original para poder reparentar de regreso al hacer scroll hacia arriba
+    const originalParent = heroElem;
+
+    // Configura el video con posición fixed, usando los valores iniciales de Hero
     gsap.set(videoElem, {
       position: "fixed",
-      top: heroRect.top,
-      left: heroRect.left,
-      width: heroRect.width,
-      height: heroRect.height,
+      top: initialHeroRect.top,
+      left: initialHeroRect.left,
+      width: initialHeroRect.width,
+      height: initialHeroRect.height,
       zIndex: 1000,
       transformOrigin: "top left",
     });
 
-    // Tween que anima la posición, traslación y escala del video
+    // Tween que calcula la diferencia entre la posición inicial y la posición actual del contenedor destino
+    // NOTA: usamos la posición inicial guardada para que el cálculo no se vea afectado por el scroll.
     const tween = gsap.to(videoElem, {
       x: () => {
-        const currentHeroRect = heroElem.getBoundingClientRect();
         const targetRect = targetElem.getBoundingClientRect();
-        return targetRect.left - currentHeroRect.left;
+        return targetRect.left - initialHeroRect.left;
       },
       y: () => {
-        const currentHeroRect = heroElem.getBoundingClientRect();
         const targetRect = targetElem.getBoundingClientRect();
-        return targetRect.top - currentHeroRect.top;
+        return targetRect.top - initialHeroRect.top;
       },
       scale: () => {
-        const currentHeroRect = heroElem.getBoundingClientRect();
         const targetRect = targetElem.getBoundingClientRect();
-        return targetRect.width / currentHeroRect.width;
+        return targetRect.width / initialHeroRect.width;
       },
       ease: "none",
-      paused: true, // Se controlará mediante el ScrollTrigger
+      paused: true,
     });
 
-    // ScrollTrigger que asocia el tween al scroll
+    // Bandera para controlar en qué estado se encuentra el video (reparentado o no)
+    let reparented = false;
+
+    // Creamos un ScrollTrigger de corta duración (con start y end en el mismo punto)
+    // de modo que se dispare cuando el contenedor destino esté centrado.
     ScrollTrigger.create({
       trigger: targetElem,
-      start: "top center",
-      end: "bottom center",
+      start: "top center", // cuando la parte superior del contenedor destino llega al centro
+      end: "top center",
       scrub: true,
       animation: tween,
-      // Cuando el trigger se sale por abajo, reubica el video
-      onLeave: () => {
-        if (videoElem.parentNode !== targetElem) {
+      onEnter: () => {
+        // Al bajar y alcanzar el trigger, si aún no se ha reparentado, lo reubicamos
+        if (!reparented) {
+          reparented = true;
           targetElem.appendChild(videoElem);
+          // Ahora que el video está dentro del contenedor destino, ajustamos sus estilos para que ocupe el 100%
           gsap.set(videoElem, {
             position: "absolute",
             top: 0,
@@ -71,19 +78,35 @@ const AnimatedVideo = ({ heroVideoRef, targetRef }) => {
           });
         }
       },
-      // Opcional: si deseas que al hacer scroll hacia arriba se regrese el video a su estado original,
-      // podrías implementar onEnterBack y reparentarlo de nuevo al contenedor original.
+      onLeaveBack: () => {
+        // Al subir y abandonar el trigger, si el video estaba reparentado, lo devolvemos a su contenedor original
+        if (reparented) {
+          reparented = false;
+          originalParent.appendChild(videoElem);
+          // Reestablece la posición fixed y los estilos originales usando initialHeroRect
+          gsap.set(videoElem, {
+            position: "fixed",
+            top: initialHeroRect.top,
+            left: initialHeroRect.left,
+            width: initialHeroRect.width,
+            height: initialHeroRect.height,
+            transformOrigin: "top left",
+          });
+        }
+      },
     });
 
-    // Actualiza las medidas en caso de resize
+    // Actualización en caso de redimensionamiento
     const handleResize = () => {
       const newHeroRect = heroElem.getBoundingClientRect();
-      gsap.set(videoElem, {
-        top: newHeroRect.top,
-        left: newHeroRect.left,
-        width: newHeroRect.width,
-        height: newHeroRect.height,
-      });
+      if (!reparented) {
+        gsap.set(videoElem, {
+          top: newHeroRect.top,
+          left: newHeroRect.left,
+          width: newHeroRect.width,
+          height: newHeroRect.height,
+        });
+      }
       ScrollTrigger.refresh();
     };
 
