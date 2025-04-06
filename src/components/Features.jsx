@@ -19,7 +19,7 @@ const Features = ({ videoTargetRef }) => {
           <div
             ref={videoTargetRef}
             id="video-container"
-            className="relative w-full h-full"
+            className="relative w-full h-80"
           ></div>
 
           <div className="h-20 w-full border dark:border-red-dark p-8 h-fit">
