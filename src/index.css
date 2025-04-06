@@ -69,6 +69,9 @@ body {
 }
 
 @utility special-font {
+
+  font-family: var(--font-porsche-italic);
+
   b {
     font-family: var(--font-porsche-italic-3d);
     font-feature-settings: "ss01" on;
