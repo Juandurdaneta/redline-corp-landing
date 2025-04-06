@@ -61,7 +61,7 @@ const Hero = () => {
 
       <Testimonials />
 
-      <div className="absolute right-20 bottom-10 z-40 w-64 h-34">
+      <div className="absolute right-22 bottom-10 z-40 w-64 h-34">
         <div className="video-border-wrapper w-full h-full">
           <video
             src="/videos/car_build.mp4"

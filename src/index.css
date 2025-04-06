@@ -114,8 +114,21 @@ body {
   }
 
   .video-border-wrapper {
-    @apply relative p-0.5 bg-red-600 dark:bg-red-dark;
-    clip-path: polygon(20% 0%, 100% 0, 100% 80%, 80% 100%, 0 100%, 0% 20%);
+    @apply relative p-[1px] bg-white dark:bg-red-dark;
+    clip-path: polygon(
+      20% 0%,
+      /* esquina superior izquierda */ 90% 0%,
+      /* justo antes del redondeo */ 95% 2%,
+      /* curva ascendente */ 98% 5%,
+      /* curva intermedia */ 100% 10%,
+      /* fin curva sup. derecha */ 100% 80%,
+      /* lado derecho */ 80% 100%,
+      /* esquina inferior derecha */ 10% 100%,
+      /* justo antes del redondeo */ 5% 98%,
+      /* curva descendente */ 2% 95%,
+      /* curva intermedia */ 0% 90%,
+      /* fin curva inf. izquierda */ 0% 20% /* lado izquierdo */
+    );
   }
 
   .video-border-inner {
