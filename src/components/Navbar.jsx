@@ -1,6 +1,7 @@
 import React from "react";
 import ToggleDarkModeButton from "./ToggleDarkModeButton";
-import { User } from "lucide-react";
+import { UserRound } from "lucide-react";
+import Logo from "../assets/logo.svg?react";
 
 const NavItems = ["Home", "Vehicles", "Specifications", "Shop"];
 
@@ -35,7 +36,7 @@ const Navbar = () => {
       <header className="absolute top-3/4 w-full -translate-y-1/2">
         <nav className="flex size-full items-start justify-between p-4 gap-20">
           <div className="flex items-center gap-20 w-1/4">
-            <img src={"/img/logo.svg"} alt="logo" className="w-32" />
+            <Logo className="w-32 text-white dark:text-red-dark" />
             <ToggleDarkModeButton />
           </div>
 
@@ -52,7 +53,7 @@ const Navbar = () => {
           </div>
           <div className="flex  w-1/4 justify-end h-10">
             <button className="hidden lg:block px-6 bg-black border dark:border-red-dark rounded-xl text-white dark:text-red-dark">
-              <User />
+              <UserRound />
             </button>
             <button className="hidden lg:block font-porsche-regular text-base dark:text-red-dark px-6 bg-black border dark:border-red-dark rounded-xl">
               Pre-order
