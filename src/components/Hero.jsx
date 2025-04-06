@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Testimonials from "./Testimonials";
 import Border from "../assets/border.svg?react";
 
-const Hero = () => {
+const Hero = ({ videoRef }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   return (
@@ -61,7 +61,7 @@ const Hero = () => {
 
       <Testimonials />
 
-      <div className="absolute right-22 bottom-10 z-40 w-64 h-34">
+      {/* <div className="absolute right-22 bottom-10 z-40 w-64 h-34">
         <div className="video-border-wrapper w-full h-full">
           <video
             src="/videos/car_build.mp4"
@@ -72,6 +72,13 @@ const Hero = () => {
             className="video-border-inner"
           />
         </div>
+      </div> */}
+
+      <div
+        ref={videoRef}
+        className="absolute right-22 bottom-10 z-40 w-64 h-34"
+      >
+        {/* Puedes incluir aquí algún placeholder o borde para que se note la miniatura */}
       </div>
     </section>
   );
