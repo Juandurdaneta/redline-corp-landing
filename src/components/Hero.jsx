@@ -12,7 +12,7 @@ const Hero = ({ videoRef, handleVideoLoaded }) => {
 
       {/* VIDEO DE PARTICULAS EN LOOP */}
       <video
-        className="absolute top-0 left-0 w-full h-full object-cover z-40 opacity-20"
+        className="absolute top-0 left-0 w-full h-full object-cover z-40 opacity-30"
         src="/videos/particles-1.mp4"
         autoPlay
         loop
@@ -33,14 +33,14 @@ const Hero = ({ videoRef, handleVideoLoaded }) => {
 
         <div className="special-font hero-heading dark:text-red-dark relative text-end w-screen h-screen z-40">
           <h1 className="relative">
-            <span className="block absolute flex flex-row gap-0 top-[25vh] right-[9vw]">
+            <span className="block absolute flex flex-row gap-0 top-[22vh] right-[9vw]">
               <b>The</b> ultimate
             </span>
             <span className="z-40 block relative">
-              <span className="block absolute top-[34vh] left-[8vw] leading-[0.5]">
+              <span className="block absolute top-[32vh] left-[8vw] leading-[0.5]">
                 refreshing
               </span>
-              <span className="block absolute top-[39vh] right-[14vw]">
+              <span className="block absolute top-[36vh] right-[14vw]">
                 <b>ride</b>
               </span>
             </span>

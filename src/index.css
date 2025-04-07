@@ -181,7 +181,7 @@ body {
   }
 
   .hero-heading {
-    @apply font-porsche-expand-italic font-normal text-8xl text-right;
+    @apply font-porsche-expand-italic font-semibold text-8xl text-right;
     line-height: 0.65 !important; /* Menor interlineado vertical */
   }
 
