@@ -257,6 +257,15 @@ body {
     clip-path: polygon(29% 15%, 85% 30%, 50% 100%, 10% 64%);
   }
 
+  .left-button-clip {
+    clip-path: polygon(0 0, 64% 0, 100% 100%, 0% 100%);
+  }
+
+  .right-button-clip {
+    clip-path: polygon(0 2%, 100% 0%, 100% 100%, 37% 100%);
+  }
+
+
   .tight-leading {
     line-height: 0.7 !important; /* ajusta aún más si es necesario */
   }

@@ -2,6 +2,7 @@ import React from "react";
 import ToggleDarkModeButton from "./ToggleDarkModeButton";
 import { UserRound } from "lucide-react";
 import Logo from "../assets/logo.svg?react";
+import NeonButtons from "./NeonButtons";
 
 const NavItems = ["Home", "Vehicles", "Specifications", "Shop"];
 
@@ -52,12 +53,7 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="flex  w-1/4 justify-end h-10">
-            <button className="hidden lg:block px-6 bg-black border dark:border-red-dark rounded-xl text-white dark:text-red-dark">
-              <UserRound />
-            </button>
-            <button className="hidden lg:block font-porsche-regular text-base dark:text-red-dark px-6 bg-black border dark:border-red-dark rounded-xl">
-              Pre-order
-            </button>
+            <NeonButtons />
           </div>
         </nav>
       </header>
