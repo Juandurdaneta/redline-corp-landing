@@ -13,12 +13,12 @@ const Testimonials = () => {
         <img
           src="/img/testimonial-1.png"
           alt="Testimonial 1"
-          className="h-10 w-10 rounded-full dark:bg-red-900 bg-gray-900"
+          className="h-10 w-10 rounded-full dark:bg-red-900 bg-gray-600"
         />
         <img
           src="/img/testimonial-2.png"
           alt="Testimonial 2"
-          className="h-10 w-10 rounded-full dark:bg-red-700 bg-gray-700"
+          className="h-10 w-10 rounded-full dark:bg-red-700 bg-gray-200"
         />
         <img
           src="/img/testimonial-3.png"
