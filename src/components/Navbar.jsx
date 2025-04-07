@@ -32,8 +32,8 @@ const NavItem = ({ item, isActive }) => {
 const Navbar = () => {
   const currentUrl = window.location.href;
   return (
-    <div className="fixed inset-x-0 top-0 z-50 h-14 border-none transition-all duration-700 sm:inset-x-6 lg:inset-x-0">
-      <header className="absolute top-3/4 w-full -translate-y-1/2">
+    <div className="fixed inset-x-0 top-0 z-50 h-16 border-none transition-all duration-700 sm:inset-x-6 lg:inset-x-0">
+      <header className="w-full h-full flex items-center justify-between px-4">
         <nav className="flex size-full items-start justify-between p-4 gap-20">
           <div className="flex justify-center items-center gap-14 w-1/4">
             <Logo className="w-32 text-white dark:text-red-dark" />

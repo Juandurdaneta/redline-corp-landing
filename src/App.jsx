@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Features from "./components/Features";
@@ -21,8 +21,21 @@ const App = () => {
 
   const isPageLoaded = loadedVideos === totalVideos;
 
+  useEffect(() => {
+    if (!isPageLoaded) {
+      document.body.style.overflow = "hidden"; // bloquea scroll en y
+    } else {
+      document.body.style.overflowY = "auto"; // activa scroll en y
+      document.body.style.overflowX = "hidden"; // mantiene scroll-x bloqueado siempre
+    }
+    return () => {
+      document.body.style.overflowY = "auto";
+      document.body.style.overflowX = "hidden";
+    };
+  }, [isPageLoaded]);
+
   return (
-    <main className="relative min-h-screen w-screen overflow-x-hidden">
+    <main className="relative min-h-screen w-screen overflow-hidden">
       {!isPageLoaded && (
         <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-black">
           <div className="loader">
